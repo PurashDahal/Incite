@@ -1,0 +1,382 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <title>Incite Flutter App with Admin Panel</title>
+    <link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection" />
+    <link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print" />
+    <link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection" />
+    <style type="text/css" media="screen">
+        p,
+        table,
+        hr,
+        .box {
+            margin-bottom: 25px;
+        }
+        .box p {
+            margin-bottom: 10px;
+        }
+        .cpenalh3{
+            font-size: 1.1em;
+            line-height: 1;
+            margin-bottom: 1em;
+        }
+        .cpenal-steps{
+            font-size: 1.3em;
+            margin-bottom: 0.75em;
+        }
+        img.thumb-images {
+		    width: 100%;
+		    padding: 5px;
+		    border: 1px solid #ddd;
+		    border-radius: 15px;
+		    margin-top: 15px;
+		    margin-bottom: 15px;
+		}
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="center alt">&ldquo;Incite Flutter App with Admin Panel&rdquo; Documentation by &ldquo;June-Themes&rdquo; v1.2</h3>
+
+        <hr />
+
+        <h1 class="center">&ldquo;Incite Flutter App with Admin Panel&rdquo;</h1>
+
+        <div class="borderTop">
+            <div class="span-6 colborder info prepend-1">
+                <p class="prepend-top">
+                    <strong>
+                        Created: 29/05/2021<br />
+                        By: Team-June<br />
+                        Email: <a href="mailto:rishabhrai210@gmail.com">rishabhrai210@gmail.com</a>
+                    </strong>
+                </p>
+            </div>
+            <!-- end div .span-6 -->
+
+            <div class="span-12 last">
+                <p class="prepend-top append-0">
+                    Thank you for purchasing my Incite Flutter App with Admin Panel. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form
+                    <a href="http://themeforest.net/user/team-june">here</a>. Thanks so much!
+                </p>
+            </div>
+        </div>
+        <!-- end div .borderTop -->
+
+        <hr />
+        <h2 id="toc" class="alt">Table of Contents</h2>
+        <ol class="alpha">
+            <li><a href="#flutterapp">Server Requirements</a></li>
+            <li><a href="#elements">Laravel Installation Process - General Steps</a></li>
+            <li><a href="#installation">Laravel Installation  Process - Using cPanel</a></li>
+			<li><a href="#elements1">MOBILE APP - Introduction</a></li>
+			<li><a href="#readyscreens">MOBILE APP - Configuration</a></li>
+			<li><a href="#build">MOBILE APP - Run & Build</a></li>
+            <li><a href="#elements2">You are ready</a></li>
+        </ol>
+        <hr />
+        <div id="flutterapp">
+            <h3><strong>A) Server Requirements</strong> - <a href="#toc">top</a></h3>
+            <p>Laravel is a web application framework with an expressive, elegant syntax. We’ve already laid the foundation freeing you to create without sweating the small things.</p>
+            <p>
+                The Laravel framework has a few system requirements. Of course, all of these requirements are satisfied by the Laravel Homestead virtual machine, so it's highly recommended that you use Homestead as your local Laravel
+                development environment.
+            </p>
+            <p>However, if you are not using Homestead, you will need to make sure your server meets the following requirements:</p>
+            <ul>
+                <li>PHP Version (7.2.x or 7.3.x)</li>
+                <li>OpenSSL PHP Extension</li>
+                <li>PDO PHP Extension</li>
+                <li>Mbstring PHP Extension</li>
+                <li>Tokenizer PHP Extension</li>
+                <li>XML PHP Extension</li>
+                <li>Ctype PHP Extension</li>
+                <li>JSON PHP Extension</li>
+                <li>Exif Extension</li>
+                <li>PHP Fileinfo Extension</li>
+            </ul>
+        </div>
+
+        <hr />
+        <div id="elements">
+            <h3><strong>B) Laravel Installation Process </strong> - <a href="#toc">top</a></h3>
+            <p><b>Step 1</b> - Extract the Folder downloaded from codecanyon which will have below files- a. Document Folder b. Larvel-code.zip c. SQL File Folder</p>
+            <p><b>Step 2</b> - Upload Larvel-code.zip in your php server (7.2.x or 7.3.x)</p>
+            <p><b>Step 3</b> - Now extract the file and change the permission for following folders to 755</p>
+            <ol>
+                <li>bootstrap</li>
+                <li>vendor</li>
+                <li>storage</li>
+            </ol>
+            <p><b>Step 4</b> - Create database and upload the SQL file received from SQL file folder.</p>
+            <p>
+                <b>Step 5</b> - Update the server database details, project name , project url and smtp details in the .env file which you find in root folder of Laravel project. (if you don't find the .env file in code, you can rename .env.example to
+                .env and change the details)
+            </p>
+            <h3>Set virtual host if you want to run it in your localhost</h3>
+            <p><b>Step 1</b> - Copy the below code in the httpd-vhosts.conf file of your xamp server. You can find the vhost file in your xamp/apache/conf/extra/</p>
+            <pre>
+                &ltVirtualHost *:80&gt
+                DocumentRoot "<<Your project code path>>"
+                ServerName incite-website.localhost
+                &lt/VirtualHost&gt  
+            </pre>
+            <p><b>Step 2</b> - Please save the file and please restart apache</p>
+            <p><b>Step 3</b> - Copy the below code in the .htaccess file. (If you dont find .htaccess file then please create one with pasting the below details.)</p>
+            <pre>
+                &ltIfModule mod_rewrite.c&gt
+                &ltIfModule mod_negotiation.c&gt
+                    Options -MultiViews
+                &lt/IfModule&gt
+
+                RewriteEngine On
+
+                RewriteCond %{REQUEST_FILENAME} -d [OR]
+                RewriteCond %{REQUEST_FILENAME} -f
+                RewriteRule ^ ^$1 [N]
+
+                RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+                RewriteRule ^(.*)$ public/$1 
+
+                RewriteCond %{REQUEST_FILENAME} !-d
+                RewriteCond %{REQUEST_FILENAME} !-f
+                RewriteRule ^ server.php
+                &lt/IfModule&gt
+            </pre>
+        </div>
+        <hr />
+        <div id="installation">
+            <h3><strong>C) Laravel Installation using cPanel</strong> - <a href="#toc">top</a></h3>
+
+            <p><b>Step 1:</b> Create Database</p>
+            <p>
+                Now login to your cPanel dashboard and click on MySQL® Database Wizard to create new database.
+                <img src="assets/images/1-database-wizards.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Here use your Desired database name and create a new one
+                <img src="assets/images/2-create-database-name.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Create database user and enter password. Make sure your password should be strong.
+                <img src="assets/images/3.set-username-and-password.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Now allow all the database permission to the user.
+                <img src="assets/images/4.allow-all-permissions-to-db-users.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Now, come back to the cPanel Dashboard and click on the phpmyadmin under the Database section.
+                <img src="assets/images/5.open-phpmyadmin.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Now goto the import section and select the SQL file which you can find in the SQL File Folder from codecanyon.
+                <img src="assets/images/6.select-database.png" width="100%" class="thumb-images">
+                <img src="assets/images/7.all-database-files.png" width="100%" class="thumb-images">
+            </p>
+            <p><b>Step 2:</b> Upload File</p>
+            <p>
+                Now, come back to the cPanel Dashboard and click on the File Manager under the File section to upload files.
+                <img src="assets/images/8.upload-file.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Now go to FileManager>public_html under Files section and upload the laravel-code.zip file received from the codecanyon folder and extract it here.
+                <img src="assets/images/9.upload-file-in-public_html_and_extract.png" width="100%" class="thumb-images">
+            </p>
+            <p><b>Step 3:</b> Setup Configurationile</p>
+            <p>
+                Sometimes, few files are hidden in the cpanel but by clicking on settings and allowing them to view can make them visible and after that you can make further changes into it.
+                <img src="assets/images/10.show-hidden-files.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Once you perform the above step, you will be able view the .htaccess and .env file.
+                <img src="assets/images/11.display-env-file-htaccess-files.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Update the server database details, project name , project url and smtp details in the .env file. (if you don't find the .env file in code, you can rename .env.example to
+                .env and change the details)
+                <img src="assets/images/12.env-steup.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Copy the below code in the .htaccess file. (If you dont find .htaccess file then please create one with pasting the below details.)
+                <pre>
+                    &ltIfModule mod_rewrite.c&gt
+                    &ltIfModule mod_negotiation.c&gt
+                        Options -MultiViews
+                    &lt/IfModule&gt
+
+                    RewriteEngine On
+
+                    RewriteCond %{REQUEST_FILENAME} -d [OR]
+                    RewriteCond %{REQUEST_FILENAME} -f
+                    RewriteRule ^ ^$1 [N]
+
+                    RewriteCond %{REQUEST_URI} (\.\w+$) [NC]
+                    RewriteRule ^(.*)$ public/$1 
+
+                    RewriteCond %{REQUEST_FILENAME} !-d
+                    RewriteCond %{REQUEST_FILENAME} !-f
+                    RewriteRule ^ server.php
+                    &lt/IfModule&gt
+                </pre>
+                <img src="assets/images/13.htaccess-code.png" width="100%" class="thumb-images">
+            </p>
+            <p>
+                Now change the permission for following folders to 755.
+                <ol>
+                    <li>bootstrap</li>
+                    <li>vendor</li>
+                    <li>storage</li>
+                </ol>
+                <img src="assets/images/14.set-folder-permission.png" width="100%" class="thumb-images">
+            </p>
+            <p><b>Step 4:</b>
+                Once all the changes are done, now you're Admin is ready.
+                <div>Default login URL is www.domain.com/admin-login.If you wish to change please go routes/web.php</div><br>
+                <div>Admin Login Details:</div>
+                <div><b>Username</b> : admin@gmail.com</div>
+                <div><b>Password</b> : admin</div>
+            </p>
+            <p><img src="assets/images/15.change-route.png" width="100%" class="thumb-images"></p>
+        </div>
+		
+		<hr>
+		
+		<h3 id="elements1"><strong>E) MOBILE APP - Introduction</strong> - <a href="#toc">top</a></h3>
+		
+		<p>Mobile app developed using a flutter framework created by Google is open-source mobile application development. It is used to develop applications for Android and iOS, as well as being the primary method of creating applications</p>
+		
+		<h2 id="requirements">Requirements</h2>
+		<p>To edit this project you must have Flutter and Dart installed and configured successfully on your device <a href="https://flutter.dev/docs/get-started/install" target="_blank" rel="noopener">Install flutter</a><br>Set up your editor Install the <a href="https://flutter.dev/docs/get-started/editor?tab=androidstudio" target="_blank" rel="noopener">Flutter and Dart plugins</a></p>
+		<h2 id="get-started">Get Started</h2>
+		<p>1- Download and unzip the <code>Flutter App</code>, use your preferred IDE (<strong>Android Studio / Visual Code / IntelliJ</strong>) to open the project.</p>
+		<p><span style="font-size: inherit; font-weight: inherit;">2 - Open </span><code style="font-weight: inherit;">/assets/cfg/configurations.json</code><span style="font-size: inherit; font-weight: inherit;"> and edit the remote link to connect your mobile app with your admin panel</span></p>
+		<pre data-lang="json" class=" language-json"><code class=" language-json">{
+		  "api_base_url": "http://yourdomain.com/public/api/",
+		  "base_url": "http://yourdomain.com/public/"
+		}</code></pre>
+		<div class="widget widget-important">
+		<div class="title">Important:</div>
+		<ul>
+		<li>These URLs must end with a slash&nbsp; <strong>'/'</strong>&nbsp;</li>
+		<li>If you have removed the <code>public</code> folder from your admin panel URL you must remove it from the URLs above&nbsp;</li>
+		</ul>
+		</div>
+		<p>3- Go to <code>/assets/img/logo.png</code> and replace it with your logo or app icon.</p>
+		<div class="widget widget-note">
+		<div class="title">Note:</div>
+		This logo used in the splash screen only, not in the app icon </div>
+		
+		<hr>
+		
+		<h3 id="readyscreens"><strong>F) MOBILE APP - Configuration</strong> - <a href="#toc">top</a></h3>
+		
+		<p>1. Extract the Incite_app.zip file into the desired folder:</p>
+		
+		<p><img src="assets/images/a1.png" width="99%"></p>
+		
+		<p>2. After extracting it your folder structure is like this:</p>
+		
+		<p><img src="assets/images/a2.png" width="99%"></p>
+		
+		<p>3. Then open your project directory in command prompt:</p>
+		
+		<p><img src="assets/images/a3.png" width="99%"></p>
+		
+		<p>4. Then you have to run this command: flutter pub get</p>
+		
+		<p><img src="assets/images/a4.png" width="99%"></p>
+		
+		<h1 class="article-title"><span>Android Configuration</span><!----></h1><div updatearticlelinks="" class="article-body">
+	<h2 id="icons">Icons</h2>
+	<p>1- Create your app icon <code>ic_launcher</code> and notification icon <code>ic_notification</code> folders <a href="https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html" target="_blank" rel="noopener">How to generate an app icon?</a> after you generate icons folder replace the following folders:</p>
+	<ul>
+	<li><code>/mipmap-hdpi</code> in <code>/android/app/src/main/res/</code> folder</li>
+	<li><code>/mipmap-mdpi</code> in <code>/android/app/src/main/res/</code> folder</li>
+	<li><code>/mipmap-xhdpi</code> in <code>/android/app/src/main/res/</code> folder</li>
+	<li><code>/mipmap-xxhdpi</code> in <code>/android/app/src/main/res/</code> folder</li>
+	<li><code>/mipmap-xxxhdpi</code> in <code>/android/app/src/main/res/</code> folder</li>
+	</ul>
+	<div class="widget widget-note">
+	<div class="title">Note:</div>
+	Must rename app icon <code>ic_launcher</code> and notification icon <code>ic_notification</code></div>
+	<h2 id="get-dependencies">Get Dependencies</h2>
+	<p>And just run the following command</p>
+	<pre data-lang="" class=" language-none"><code class="lang- language-none">flutter pub get</code></pre>
+	<h2 id="change-package-name">Change Package Name</h2>
+	<p>If you want to change the package name following the next steps</p>
+	<p>1 - Open <code>/android/app/build.gradle</code> and change the package name</p>
+	<pre data-lang="json" class=" language-json"><code class=" language-json">    defaultConfig {
+			applicationId "&lt;REPLACE WITH YOUR PACKAGE NAME&gt;" // this is the package name
+        minSdkVersion 19
+        targetSdkVersion 29
+        versionCode flutterVersionCode.toInteger()
+        versionName flutterVersionName
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }</code></pre>
+	<p>2- Open <code>/android/app/src/main/AndroidManifest.xml</code> , <code>/android/app/src/profil/AndroidManifest.xml</code>, <code>/android/app/src/debug/AndroidManifest.xml</code> and specify your:</p>
+	<ul>
+	<li><strong><em>Y</em>OUR PACKAGE NAME</strong></li>
+	<li><strong> YOUR APPLICATION NAME</strong></li>
+	</ul>
+
+	<pre data-lang="xml" class=" language-xml"><code class=" language-xml"><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>manifest</span> <span class="token attr-name"><span class="token namespace">xmlns:</span>android</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>http://schemas.android.com/apk/res/android<span class="token punctuation">"</span></span>
+    <span class="token attr-name">package</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&lt;YOUR PACKAGE NAME&gt;<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span>
+
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>uses-permission</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>android.permission.INTERNET<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>uses-permission</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>android.permission.ACCESS_FINE_LOCATION<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>uses-permission</span> <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>android.permission.ACCESS_COARSE_LOCATION<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+
+    <span class="token comment">&lt;!-- io.flutter.app.FlutterApplication is an android.app.Application that
+         calls FlutterMain.startInitialization(this); in its onCreate method.
+         In most cases you can leave this as-is, but you if you want to provide
+         additional functionality it is fine to subclass or reimplement
+         FlutterApplication and put your custom class here. --&gt;</span>
+    <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>application</span>
+        <span class="token attr-name"><span class="token namespace">android:</span>name</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>.Application<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>label</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>&lt;YOUR APPLICATION NAME&gt;<span class="token punctuation">"</span></span>
+        <span class="token attr-name"><span class="token namespace">android:</span>icon</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">"</span>@mipmap/ic_launcher<span class="token punctuation">"</span></span><span class="token punctuation">&gt;</span></span></code></pre>
+		
+		<p>3 - Open <code>/android/app/src/main/kotlin/&lt;Your Package name folders&gt;/Application.kt</code> and change the package name same thing with <code>/android/app/src/main/kotlin/&lt;Your Package name folders&gt;/MainActivity.kt</code></p>
+		
+		<p>Now all set you are ready to go ahead.</p>
+		
+		<hr>
+		
+		<h3 id="build"><strong>G) MOBILE APP - Run & Build</strong> - <a href="#toc">top</a></h3>
+		
+		<h2 id="run-the-application">Run the Application</h2>
+		<p>1- In the target selector, select an Android device for running the app. If none are listed as available, select Tools&gt; Android &gt; AVD Manager and create one there. For details, see <a href="https://developer.android.com/studio/run/managing-avds" target="_blank" rel="noopener">Managing AVDs</a>.</p>
+		<p>Click the run icon in the toolbar, or invoke the menu item Run &gt; Run. Locate the main Android Studio toolbar: <img src="assets/images/ios.png"></p>
+		<p>2- If you don't use <strong>Android Studio or IntelliJ</strong> you can use the command line to run your application using the following command</p>
+		<pre><code>flutter run</code></pre>
+		<h2 id="build-and-install-app">Build and Install App</h2>
+		<p>1- After you make all your changes and customizations save all your project, Open the console, navigate to your project folder and execute the following command to build your app</p>
+		<pre><code>flutter build apk --release</code></pre>
+		<p>If you are deploying the app to the Play Store, it's recommended to use app bundles or split the APK to reduce the APK size.<br>To generate an app bundle, run:</p>
+		<pre>flutter build appbundle --target-platform android-arm,android-arm64,android-x64</pre>
+		<p>Learn more on <a href="https://developer.android.com/guide/app-bundle" target="_blank" rel="noopener">https://developer.android.com/guide/app-bundle</a><br>To split the APKs per ABI, run:</p>
+		<pre>flutter build apk --target-platform android-arm,android-arm64,android-x64 --split-per-abi</pre>
+		<p>Learn more on <a href="/help-center/articles/7/10/19/run-and-build#configure-abi-split" target="_blank" rel="noopener">https://developer.android.com/studio/build/configure-apk-splits#configure-abi-split</a></p>
+		<p>You should get the APK file in the <code>build/output/apk</code> folder, to install your application on your connected device run the following command</p>
+		<pre>flutter install</pre>
+		<p>2- If you want to upload your application on Google Play you must sign it before uploading, generate a signing key by running the following command:</p>
+		<pre data-lang="" class=" language-none"><code class="lang- language-none">keytool -genkey -v -keystore android/app/key.jks -keyalg RSA -keysize 2048 -validity 10000 -alias key</code></pre>
+		<p>3- Open <code>/android/key.properties</code> and edit the following attributes after that re-build your application:</p>
+		<pre data-lang="" class=" language-none"><code class="lang- language-none">storePassword=&lt;Your Key Password&gt;
+		keyPassword=&lt;Your Key Password&gt;
+		keyAlias=key
+		storeFile=key.jks</code></pre></div>
+		
+		<hr>
+        
+        <p id="elements2">
+            Once again, thank you so much for purchasing this App. As I said at the beginning, I'd be glad to help you if you have any questions relating to this theme. No guarantees, but I'll do my best to assist. If you have a
+            more general question relating to the themes on CodeCanyon, you might consider visiting the forums and asking your question in the "Item Discussion" section.
+        </p>
+        <p class="append-bottom alt large"><strong>Team-June</strong></p>
+        <p><a href="#toc">Go To Table of Contents</a></p>
+        <hr class="space" />
+    </div>
+</body>
